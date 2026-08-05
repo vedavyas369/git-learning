@@ -20,3 +20,14 @@ add_student("Bob")
 
 print("Student Management System - V1")
 view_students()
+
+
+def search_student(name):
+    if name in students:
+        print(f"{name} found.")
+    else:
+        print(f"{name} not found.")
+        search_student("Alice")
+
+
+search_student("John")
