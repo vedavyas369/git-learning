@@ -1,6 +1,20 @@
 students = []
 
 
+# -----------------------------
+# Functions
+# -----------------------------
+
+def load_students():
+    try:
+        with open("students.txt", "r") as file:
+            for line in file:
+                students.append(line.strip())
+        print("Students loaded successfully.")
+    except FileNotFoundError:
+        print("students.txt not found. Starting with an empty list.")
+
+
 def add_student(name):
     students.append(name)
 
@@ -13,13 +27,6 @@ def view_students():
         print("------------")
         for student in students:
             print(student)
-
-
-add_student("Alice")
-add_student("Bob")
-
-print("Student Management System - V1")
-view_students()
 
 
 def search_student(name):
@@ -52,9 +59,20 @@ def save_students():
             file.write(student + "\n")
     print("Students saved successfully.")
 
-    search_student("Alice")
 
+# -----------------------------
+# Main Program
+# -----------------------------
 
+load_students()
+
+add_student("Alice")
+add_student("Bob")
+
+print("Student Management System - V1")
+view_students()
+
+search_student("Alice")
 search_student("John")
 
 update_student("Bob", "Robert")
@@ -66,4 +84,5 @@ delete_student("Alice")
 
 print("\nFinal Student List")
 view_students()
+
 save_students()
