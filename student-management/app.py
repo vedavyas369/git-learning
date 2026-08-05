@@ -45,7 +45,14 @@ def delete_student(name):
     else:
         print(f"{name} not found")
 
-        search_student("Alice")
+
+def save_students():
+    with open("students.txt", "w") as file:
+        for student in students:
+            file.write(student + "\n")
+    print("Students saved successfully.")
+
+    search_student("Alice")
 
 
 search_student("John")
@@ -59,3 +66,4 @@ delete_student("Alice")
 
 print("\nFinal Student List")
 view_students()
+save_students()
