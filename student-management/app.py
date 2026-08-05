@@ -27,7 +27,22 @@ def search_student(name):
         print(f"{name} found.")
     else:
         print(f"{name} not found.")
+
+
+def update_student(old_name, new_name):
+    if old_name in students:
+        index = students.index(old_name)
+        students[index] = new_name
+        print(f"{old_name} updated to {new_name}")
+    else:
+        print(f"{old_name} not found")
+
         search_student("Alice")
 
 
 search_student("John")
+
+update_student("Bob", "Robert")
+
+print("\nUpdated Student List")
+view_students()
